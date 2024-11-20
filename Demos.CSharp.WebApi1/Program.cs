@@ -1,4 +1,6 @@
 
+using Demos.CSharp.WebApi1.Services;
+
 namespace Demos.CSharp.WebApi1
 {
     public class Program
@@ -15,9 +17,9 @@ namespace Demos.CSharp.WebApi1
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            //builder.Services.AddSingleton();
-            //builder.Services.AddScoped();
-            //builder.Services.AddTransient();
+            builder.Services.AddSingleton<IOperationSingleton, Operation>();
+            builder.Services.AddScoped<IOperationScoped, Operation>();
+            builder.Services.AddTransient<IOperationTransient, Operation>();
 
 
             var app = builder.Build();
