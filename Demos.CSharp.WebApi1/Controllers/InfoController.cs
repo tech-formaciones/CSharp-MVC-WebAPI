@@ -7,7 +7,6 @@ namespace Demos.CSharp.WebApi1.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
-    [Autorizacion]
     public class InfoController : ControllerBase
     {
         private readonly IOperationSingleton _singleton;

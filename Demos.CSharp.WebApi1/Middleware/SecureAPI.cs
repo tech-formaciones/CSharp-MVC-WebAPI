@@ -3,6 +3,9 @@ using Microsoft.Extensions.Primitives;
 
 namespace Demos.CSharp.WebApi1.Middleware
 {
+    /// <summary>
+    /// Canalización personalizada de seguridad de la API. Validación de tokens de autenticación.
+    /// </summary>
     public class SecureAPI
     {
         private readonly RequestDelegate _next;
@@ -48,6 +51,10 @@ namespace Demos.CSharp.WebApi1.Middleware
         }
     }
 
+    /// <summary>
+    /// Una extensión para el tipo IApplicationBuilder.
+    /// Permite agregar un middleware personalizado llamado SecureAPI al pipeline de la aplicación.
+    /// </summary>
     public static class SecureAPIExtensions
     {
         public static IApplicationBuilder UseSecureAPI(this IApplicationBuilder builder)

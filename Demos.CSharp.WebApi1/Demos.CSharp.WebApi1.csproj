@@ -17,4 +17,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Demos.CSharp.Data\Demos.CSharp.Data.csproj" />
+  </ItemGroup>
+
 </Project>

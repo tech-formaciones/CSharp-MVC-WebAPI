@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApplication1", "Demos.CSharp.WebApplication1\Demos.CSharp.WebApplication1.csproj", "{E1133270-7E05-48EA-8AC9-AB583DC5083E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApi1", "Demos.CSharp.WebApi1\Demos.CSharp.WebApi1.csproj", "{371405F1-CF57-4407-B5D7-3E531EB7CC9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.Data", "Demos.CSharp.Data\Demos.CSharp.Data.csproj", "{06C7D985-BDAD-486B-9E79-3A1A711C1821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{371405F1-CF57-4407-B5D7-3E531EB7CC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{371405F1-CF57-4407-B5D7-3E531EB7CC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{371405F1-CF57-4407-B5D7-3E531EB7CC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,18 @@
-﻿namespace Demos.CSharp.WebApplication1.Servicios
+﻿/*
+IOperation es la interfaz base que define un ID de operación y un contador.
+
+IOperationSingleton, IOperationScoped y IOperationTransient son interfaces especializadas 
+para diferentes ciclos de vida de los servicios en la DI de ASP.NET Core.
+
+Operation implementa estas interfaces y tiene un comportamiento diferente dependiendo de su ciclo de vida:
+ - Singleton: Una sola instancia durante toda la aplicación.
+ - Scoped: Una nueva instancia por solicitud HTTP.
+ - Transient: Una nueva instancia cada vez que se solicita el servicio.
+
+Esto te permite controlar cómo se gestionan las instancias de tus servicios a lo largo del ciclo de vida de la aplicación.
+*/
+
+namespace Demos.CSharp.WebApplication1.Servicios
 {
     public interface IOperation
     { 
