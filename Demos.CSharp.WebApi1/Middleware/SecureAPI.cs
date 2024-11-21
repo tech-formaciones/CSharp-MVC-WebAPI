@@ -14,9 +14,7 @@ namespace Demos.CSharp.WebApi1.Middleware
             try
             {
                 string clave = _configuration.GetValue<string>("Clave");
-                
-                StringValues apikey;
-                context.Request.Headers.TryGetValue("APIKey", out apikey);
+                context.Request.Headers.TryGetValue("APIKey", out var apikey);
 
                 if (clave == apikey) await _next(context);
                 else 

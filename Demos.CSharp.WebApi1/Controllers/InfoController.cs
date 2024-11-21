@@ -1,11 +1,13 @@
 ﻿using Demos.CSharp.WebApi1.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Demos.CSharp.WebApi1.AttributesFilters;
 
 namespace Demos.CSharp.WebApi1.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
+    [Autorizacion]
     public class InfoController : ControllerBase
     {
         private readonly IOperationSingleton _singleton;
@@ -16,7 +18,8 @@ namespace Demos.CSharp.WebApi1.Controllers
         public object Get()
         {
             return new 
-            { 
+            {
+                Method = "GET",
                 Singleton = _singleton.OperationId,
                 Scoped = _scoped.OperationId,
                 Transient = _transient.OperationId
@@ -26,7 +29,13 @@ namespace Demos.CSharp.WebApi1.Controllers
         [HttpPost]
         public object Post()
         {
-            return "hola mundo 2 !!!";
+            return new
+            {
+                Method = "POST",
+                Singleton = _singleton.OperationId,
+                Scoped = _scoped.OperationId,
+                Transient = _transient.OperationId
+            };
         }
 
         public InfoController(IOperationSingleton singleton, IOperationScoped scoped, IOperationTransient transient)

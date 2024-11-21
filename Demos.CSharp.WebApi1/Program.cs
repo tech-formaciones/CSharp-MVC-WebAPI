@@ -44,14 +44,12 @@ namespace Demos.CSharp.WebApi1
             }
 
             app.UseHttpsRedirection();
-
             //app.UseAuthorization();
-            app.UseSecureAPI();
 
-            app.UseCustomHeaders("Mensaje de Prueba");
+            //app.UseSecureAPI();
+            //app.UseCustomHeaders("Mensaje de Prueba");
 
             app.MapControllers();
-
             app.Run();
         }
     }
