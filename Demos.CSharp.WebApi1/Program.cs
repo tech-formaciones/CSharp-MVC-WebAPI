@@ -1,9 +1,10 @@
 
+using Demos.CSharp.Data;
 using Demos.CSharp.WebApi1.AttributesFilters;
 using Demos.CSharp.WebApi1.Middleware;
 using Demos.CSharp.WebApi1.Services;
 using Microsoft.OpenApi.Models;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demos.CSharp.WebApi1
 {
@@ -24,6 +25,12 @@ namespace Demos.CSharp.WebApi1
             //builder.Services.AddControllers(options => {
             //    options.Filters.Add<Autorizacion2>();
             //});
+
+            //////////////////////////////////////////////////////////////////////
+
+            // Registrar los servicios para disponer del contexto de conexión a las bases de datos
+            builder.Services.AddDbContext<DBNorthwind>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
 
             //////////////////////////////////////////////////////////////////////
 
