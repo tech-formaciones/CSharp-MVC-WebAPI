@@ -1,0 +1,6 @@
+@Demos.CSharp.WebApi3_HostAddress = http://localhost:5136
+
+GET {{Demos.CSharp.WebApi3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

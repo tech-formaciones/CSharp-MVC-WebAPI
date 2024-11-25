@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApi1", "Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.Data", "Demos.CSharp.Data\Demos.CSharp.Data.csproj", "{06C7D985-BDAD-486B-9E79-3A1A711C1821}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApi2", "Demos.CSharp.WebApi2\Demos.CSharp.WebApi2.csproj", "{CFDD1795-D734-49E9-9FA8-E02E7620FFF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApi3", "Demos.CSharp.WebApi3\Demos.CSharp.WebApi3.csproj", "{86C4B0ED-A792-4E4D-AEED-53F3070894FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C7D985-BDAD-486B-9E79-3A1A711C1821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFDD1795-D734-49E9-9FA8-E02E7620FFF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFDD1795-D734-49E9-9FA8-E02E7620FFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFDD1795-D734-49E9-9FA8-E02E7620FFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFDD1795-D734-49E9-9FA8-E02E7620FFF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

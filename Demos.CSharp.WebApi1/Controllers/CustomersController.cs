@@ -15,6 +15,8 @@ namespace Demos.CSharp.WebApi1.Controllers
         { 
             _db = db;
         }
+
+
         // GET /api/customers
         // GET /api/customers?company=&city=&country=
         [HttpGet]
@@ -59,7 +61,6 @@ namespace Demos.CSharp.WebApi1.Controllers
                 return Problem(detail: e.Message, statusCode: 500);
             }
         }
-
 
         // POST /api/customers
         [HttpPost]

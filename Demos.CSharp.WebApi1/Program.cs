@@ -38,13 +38,31 @@ namespace Demos.CSharp.WebApi1
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(options =>
-                options.AddSecurityDefinition("APIKey", new OpenApiSecurityScheme { 
+            {
+                options.AddSecurityDefinition("APIKey", new OpenApiSecurityScheme
+                {
                     Name = "APIKey",
                     Type = SecuritySchemeType.ApiKey,
-                    In = ParameterLocation.Header,
+                    In = ParameterLocation.Query,
                     Description = "APIKey necesaria para acceder al servicio."
-                })
-            );
+                });
+
+                // Agregar el requisito de seguridad
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "APIKey"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
 
             //////////////////////////////////////////////////////////////////////
 
