@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Customer>
+
+@{
+    ViewData["Title"] = "Listado de Clientes";
+}
+
+@section Styles { }
+
+@section Scripts {
+    <script>
+        $(document).ready(function(){
+            DemoApp.Modules.Customers.Init();
+        });
+    </script>
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Listado de Clientes</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CustomerID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CompanyName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ContactName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+@*                     <th>
+                        @Html.DisplayNameFor(model => model.Fax)
+                    </th> *@
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CustomerID</td>
+                        <td>@item.CompanyName</td>
+                        <td>
+                            @item.ContactName
+                            <br />
+                            <small>@item.ContactTitle</small>
+                        </td>
+                        <td>
+                            @item.Address
+                            <br />
+                            <small>
+                                @item.PostalCode @item.City (@item.Country)
+                            </small>
+                        </td>
+                        <td>@item.Phone</td>
+                        @* <td>@item.Fax</td> *@
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-action="edit" asp-route-id="@item.CustomerID">editar</a> &nbsp;
+                            <button class="btn btn-danger btn-sm">borrar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br /><br />
+<div class="row">
+    <div class="col-6"> </div>
+    <div class="col-6 text-end"> 
+        <a class="btn btn-success" asp-action="create">Nuevo Cliente</a>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />

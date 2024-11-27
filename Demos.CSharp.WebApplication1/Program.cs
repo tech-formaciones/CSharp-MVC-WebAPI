@@ -1,5 +1,7 @@
 using System;
+using Demos.CSharp.Data;
 using Demos.CSharp.WebApplication1.Servicios;
+using Microsoft.EntityFrameworkCore;
 using static System.Net.WebRequestMethods;
 
 namespace Demos.CSharp.WebApplication1
@@ -15,7 +17,12 @@ namespace Demos.CSharp.WebApplication1
             ////////////////////////////////////////////////////////////////////////
 
             // Registra los servicios necesarios para habilitar los controladores y vistas en una aplicación web.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
+
+            // Registrar los servicios para disponer del contexto de conexión a las bases de datos
+            builder.Services.AddDbContext<DBNorthwind>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
 
             //////////////////////////////////////////////////////////////////////
 

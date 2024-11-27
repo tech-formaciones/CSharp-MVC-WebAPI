@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApi2", "Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApi3", "Demos.CSharp.WebApi3\Demos.CSharp.WebApi3.csproj", "{86C4B0ED-A792-4E4D-AEED-53F3070894FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demos.CSharp.WebApplication2", "Demos.CSharp.WebApplication2\Demos.CSharp.WebApplication2.csproj", "{A2697033-8203-48E4-ABC4-C1ED09F7D5F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86C4B0ED-A792-4E4D-AEED-53F3070894FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2697033-8203-48E4-ABC4-C1ED09F7D5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2697033-8203-48E4-ABC4-C1ED09F7D5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2697033-8203-48E4-ABC4-C1ED09F7D5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2697033-8203-48E4-ABC4-C1ED09F7D5F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

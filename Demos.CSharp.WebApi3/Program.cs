@@ -61,8 +61,6 @@ namespace Demos.CSharp.WebApi3
                 });
             });
 
-
-
             var app = builder.Build();
 
             ////////////////////////////////////////////////////////////
@@ -78,6 +76,18 @@ namespace Demos.CSharp.WebApi3
             app.UseAuthorization();
 
             ///////////////////////////////////////////////////////////
+
+            // Define un endpoint que responde a solicitudes GET
+            app.MapGet("/orders", async (DBNorthwind db) =>
+                await db.Orders.ToListAsync());
+
+            // Define un endpoint que responde a solicitudes GET
+            app.MapGet("/orders/{id}", async (DBNorthwind db, int id) =>
+            {
+                return await db.Orders.FindAsync(id) is Order order
+                    ? Results.Ok(order)
+                    : Results.NotFound();
+            });
 
             // El código crea un grupo de rutas con el prefijo /customers
             // Aplica un filtro de endpoints llamado CustomHeaders a todos los endpoints dentro del grupo.
@@ -108,6 +118,14 @@ namespace Demos.CSharp.WebApi3
                 return await db.Customers.FindAsync(id) is Customer customer
                     ? Results.Ok(customer)
                     : Results.NotFound();
+            });
+
+            // Define un endpoint dentro del grupo customerGroup que responde a solicitudes GET
+            customerGroup.MapGet("/{id}/orders", async (DBNorthwind db, string id) =>
+            {
+                IEnumerable<Order> orders = await db.Orders.Where(r => r.CustomerID == id).ToListAsync();
+                if (orders == null) return Results.NotFound();
+                else return Results.Ok(orders);
             });
 
             // Define un endpoint dentro del grupo customerGroup que responde a solicitudes POST

@@ -43,7 +43,7 @@ namespace Demos.CSharp.WebApi1
                 {
                     Name = "APIKey",
                     Type = SecuritySchemeType.ApiKey,
-                    In = ParameterLocation.Query,
+                    In = ParameterLocation.Header,
                     Description = "APIKey necesaria para acceder al servicio."
                 });
 
@@ -107,7 +107,7 @@ namespace Demos.CSharp.WebApi1
 
             // Canalización personalizada de seguridad de la API.
             // Validación de tokens de autenticación.
-            //app.UseSecureAPI();
+            app.UseSecureAPI();
 
 
             // Canalización personalizada de la API.

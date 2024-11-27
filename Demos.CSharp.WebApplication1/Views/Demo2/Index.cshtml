@@ -1,0 +1,21 @@
+﻿@model Customer
+
+<div class="row">
+	<div class="col">
+		<h1>Demo - INDEX - Traspasar datos a la vista</h1>
+		<hr />
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<p><b>Empresa (<small>model</small>): </b> @Model.CompanyName</p>
+		<p><b>Empresa (<small>ViewData):</small></b> @ViewBag.Cliente.CompanyName</p>
+		<p><b>Empresa (<small>TempData):</small></b> @* @TempData["Valor"] *@</p>
+		<br />
+		<a class="btn btn-success" asp-controller="demo2" asp-action="first">Ir First</a> &nbsp;
+		<a class="btn btn-success" asp-controller="demo2" asp-action="second">Ir Second</a>
+	</div>
+</div>
+
+
