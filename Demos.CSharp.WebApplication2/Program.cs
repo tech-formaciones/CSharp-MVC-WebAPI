@@ -1,4 +1,5 @@
 using Demos.CSharp.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace Demos.CSharp.WebApplication2
@@ -17,6 +18,19 @@ namespace Demos.CSharp.WebApplication2
             // Registrar los servicios para disponer del contexto de conexión a las bases de datos
             builder.Services.AddDbContext<DBNorthwind>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
+
+            // Registrar los servicios de autenticación basados en una Cookie
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
+            // Registrar el uso de una Cookie para estados de sesión
+            builder.Services.AddSession(options => {
+                options.Cookie.Name = "AppSession";
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
 
             //Regristrar el servicio para disponer de un cliente HTTP 
             builder.Services.AddHttpClient("default", options => { 

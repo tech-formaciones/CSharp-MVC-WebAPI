@@ -77,6 +77,7 @@ namespace Demos.CSharp.WebApplication2.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Customer customer)
         {
             ViewBag.Pedidos = GetOrders(customer.CustomerID);
@@ -120,6 +121,7 @@ namespace Demos.CSharp.WebApplication2.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult New(Customer customer)
         {
             if (ModelState.IsValid)

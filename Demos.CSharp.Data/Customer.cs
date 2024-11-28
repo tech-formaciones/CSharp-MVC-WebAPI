@@ -7,8 +7,10 @@ namespace Demos.CSharp.Data;
 public partial class Customer
 {
     [Display(Name = "Identificador")]
+    [Required(ErrorMessage = "El campo identificador es requerido.")]
     public string CustomerID { get; set; } = null!;
 
+    [Required(ErrorMessage = "El campo Empresa es requerido.")]
     [Display(Name = "Empresa")]
     public string CompanyName { get; set; } = null!;
 
@@ -31,7 +33,7 @@ public partial class Customer
 
     [Display(Name = "País")]
     public string? Country { get; set; }
-
+    
     [Display(Name = "Teléfono")]
     public string? Phone { get; set; }
 

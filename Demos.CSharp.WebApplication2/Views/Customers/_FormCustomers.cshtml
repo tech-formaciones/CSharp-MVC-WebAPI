@@ -1,5 +1,6 @@
 ﻿@model Customer
 
+@Html.AntiForgeryToken()
 <div class="row">
     <div class="col">
         <div class="card">
@@ -8,7 +9,7 @@
                 <div class="row mb-3">
                     <label asp-for="CustomerID" class="col-2 col-sm-12 col-form-label"></label>
                     <div class="col-10 col-sm-12">
-                        <input asp-for="CustomerID" type="text" class="form-control" />
+                        <input asp-for="CustomerID" type="text" class="form-control" maxlength="5" />
                         <span asp-validation-for="CustomerID" class="text-danger"></span>
                     </div>
                 </div>
@@ -22,7 +23,11 @@
                 <div class="row mb-3">
                     <label asp-for="ContactName" class="col-2 col-sm-12 col-form-label"></label>
                     <div class="col-10 col-sm-12">
-                        <input asp-for="ContactName" type="text" class="form-control" />
+                        <input asp-for="ContactName" type="text" class="form-control"
+                            data-val="true" 
+                            data-val-required="El campo contacto es requerido"
+                            data-val-length="Mínimo tres caracteres"
+                            data-val-length-min="3"/>
                         <span asp-validation-for="ContactName" class="text-danger"></span>
                     </div>
                 </div>
