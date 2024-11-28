@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Listado de Pedidos";
+}
+
+@section Styles { }
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            @if (string.IsNullOrEmpty(ViewBag.ErrorMessage))
+            {
+                <text>
+                    DemoApp.Modules.Orders.Init();
+                </text>
+            }
+            else
+            {
+                <text>
+                    DemoApp.Core.Message.Show('@ViewBag.ErrorMessage', 'error');
+                </text>
+            }
+        });
+    </script>
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Listado de Pedidos</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <partial name="_OrdersList" model="Model" />
+    </div>
+</div>
+<br /><br />
+<div class="row">
+    <div class="col-6"> </div>
+    <div class="col-6 text-end"> 
+        <a class="btn btn-success" asp-action="create">Nuevo Pedido</a>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />

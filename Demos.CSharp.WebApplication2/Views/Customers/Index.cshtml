@@ -8,8 +8,19 @@
 
 @section Scripts {
     <script>
-        $(document).ready(function(){
-            DemoApp.Modules.Customers.Init();
+        $(document).ready(function () {
+            @if (string.IsNullOrEmpty(ViewBag.ErrorMessage))
+            {
+                <text>
+                    DemoApp.Modules.Customers.Init();
+                </text>
+            }
+            else
+            {
+                <text>
+                    DemoApp.Core.Message.Show('@ViewBag.ErrorMessage', 'error');
+                </text>
+            }
         });
     </script>
 }
@@ -81,7 +92,7 @@
 <div class="row">
     <div class="col-6"> </div>
     <div class="col-6 text-end"> 
-        <a class="btn btn-success" asp-action="create">Nuevo Cliente</a>
+        <a class="btn btn-success" asp-controller="customers" asp-action="new">Nuevo Cliente</a>
     </div>
 </div>
 <br />

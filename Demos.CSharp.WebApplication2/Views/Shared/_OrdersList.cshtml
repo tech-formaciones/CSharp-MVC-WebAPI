@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Order>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Núm. Pedido</th>
+            <th>Fecha Pedido</th>
+            <th>Fecha Envio</th>
+            @if (ViewContext.RouteData.Values["controller"]?.ToString().ToLower() != "customers")
+            {
+                <th>ID Cliente</th>
+            }
+            @* <th>Transporte</th> *@
+            <th>Destino</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderID</td>
+                <td>@item.OrderDate.GetValueOrDefault().ToShortDateString()</td>
+                <td>@item.ShippedDate.GetValueOrDefault().ToShortDateString()</td>
+                @if (ViewContext.RouteData.Values["controller"].ToString().ToLower() != "customers")
+                {
+                <td>@item.CustomerID</td>
+                }
+                <td>
+                    @item.ShipName
+                    <br />
+                    <small>
+                        @item.ShipCity (@item.ShipCountry)
+                    </small>
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" asp-controller="orders" asp-action="edit" asp-route-id="@item.OrderID">editar</a> &nbsp;
+                    <button class="btn btn-danger btn-sm">borrar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

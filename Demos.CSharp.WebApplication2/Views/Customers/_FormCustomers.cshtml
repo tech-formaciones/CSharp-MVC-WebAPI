@@ -1,0 +1,95 @@
+﻿@model Customer
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header"><b>Datos del Cliente</b></div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <label asp-for="CustomerID" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="CustomerID" type="text" class="form-control" />
+                        <span asp-validation-for="CustomerID" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="CompanyName" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="CompanyName" type="text" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="ContactName" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="ContactName" type="text" class="form-control" />
+                        <span asp-validation-for="ContactName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="ContactTitle" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="ContactTitle" type="text" class="form-control" />
+                        <span asp-validation-for="ContactTitle" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Address" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="Address" type="text" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Region" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="Region" type="text" class="form-control" />
+                        <span asp-validation-for="Region" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="PostalCode" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="PostalCode" type="text" class="form-control" />
+                        <span asp-validation-for="PostalCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="City" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="City" type="text" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Country" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="Country" type="text" class="form-control" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Phone" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="Phone" type="text" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Fax" class="col-2 col-sm-12 col-form-label"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="Fax" type="text" class="form-control" />
+                        <span asp-validation-for="Fax" class="text-danger"></span>
+                    </div>
+                </div>
+                @* <div class="row mb-3">
+                    <label asp-for="" class="col-2 col-sm-12 col-form-label text-end"></label>
+                    <div class="col-10 col-sm-12">
+                        <input asp-for="" type="text" class="form-control"  />
+                        <span asp-validation-for="" class="text-danger"></span>
+                    </div>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
