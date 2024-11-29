@@ -20,8 +20,17 @@ namespace Demos.CSharp.WebApplication2
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind")));
 
             // Registrar los servicios de autenticación basados en una Cookie
-            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie();
+            builder.Services.AddAuthentication(
+                CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options => {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                options.SlidingExpiration = true;
+                options.AccessDeniedPath = "/account/forbidden";
+                options.LoginPath = "/account/login";
+                options.LogoutPath = "/account/logout";
+            });
+
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Registrar el uso de una Cookie para estados de sesión
             builder.Services.AddSession(options => {
@@ -31,6 +40,7 @@ namespace Demos.CSharp.WebApplication2
                 options.Cookie.IsEssential = true;
             });
 
+            builder.Services.AddAntiforgery();
 
             //Regristrar el servicio para disponer de un cliente HTTP 
             builder.Services.AddHttpClient("default", options => { 
@@ -52,11 +62,15 @@ namespace Demos.CSharp.WebApplication2
                 app.UseHsts();
             }
 
+            app.UseAntiforgery();
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
+            app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Strict });
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

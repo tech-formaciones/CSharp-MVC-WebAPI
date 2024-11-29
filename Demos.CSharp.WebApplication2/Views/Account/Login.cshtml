@@ -1,0 +1,54 @@
+﻿@section Scripts {
+	<script>
+	@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+	{
+	<text>
+		$(document).ready(function() {
+			setTimeout(function() { $('.alert').fadeOut(); }, 3000);
+		});
+	</text>
+	}
+	</script>
+}
+
+<div class="px-4">
+	<div class ="row justify-content-center">
+		<div class="col-5">
+			<br />
+			@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+			{ 
+				<div class="alert alert-danger" role="alert">
+					@ViewBag.ErrorMessage
+				</div>
+			}
+			<br />
+			<div class="card shadow-md border-1 rouded-md mt-5">
+				<div class="card-header text-center bg-primary">
+					<h1 class="text-white">Login</h1>
+				</div>
+				<div class="card-body">
+					<form method="post">
+						<div class="mb-3">
+							<label class="small mb-1" for="email">Email</label>
+							<input type="email" class="form-control" name="email" id="email" />
+						</div>
+						<div class="mb-3">
+							<label class="small mb-1" for="password">Contraseña</label>
+							<input type="password" class="form-control" name="password" id="password" />
+						</div>
+						<br />
+						<div class="mt-3 mb-0 text-center">						
+							<button type="submit" class="btn btn-primary">Login</button>
+							<br />
+							<br />
+							<a href="/">¿Has olvidado la contraseña?</a>
+						</div>
+					</form>
+				</div>
+				<div class="card-footer">
+					<a href="/">¿Necesitas una cuenta? Registrate!!!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

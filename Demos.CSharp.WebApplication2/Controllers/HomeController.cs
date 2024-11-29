@@ -1,9 +1,11 @@
 using System.Diagnostics;
 using Demos.CSharp.WebApplication2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demos.CSharp.WebApplication2.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,10 +15,12 @@ namespace Demos.CSharp.WebApplication2.Controllers
             _logger = logger;
         }
 
+        
         public IActionResult Index()
         {
             return View();
         }
+
 
         public IActionResult Privacy()
         {

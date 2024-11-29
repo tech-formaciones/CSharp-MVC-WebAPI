@@ -1,9 +1,11 @@
 ﻿using Demos.CSharp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Demos.CSharp.WebApplication2.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly HttpClient _http;

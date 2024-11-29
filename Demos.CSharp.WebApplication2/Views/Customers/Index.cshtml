@@ -21,6 +21,10 @@
                     DemoApp.Core.Message.Show('@ViewBag.ErrorMessage', 'error');
                 </text>
             }
+
+            $('.btn-delete-customer').click(function() {
+                DemoApp.Modules.Customers.Delete.Process($(this).data('name'), $(this).data('customer'));
+            });
         });
     </script>
 }
@@ -61,7 +65,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr data-customer="@item.CustomerID">
                         <td>@item.CustomerID</td>
                         <td>@item.CompanyName</td>
                         <td>
@@ -80,7 +84,16 @@
                         @* <td>@item.Fax</td> *@
                         <td>
                             <a class="btn btn-primary btn-sm" asp-action="edit" asp-route-id="@item.CustomerID">editar</a> &nbsp;
-                            <button class="btn btn-danger btn-sm">borrar</button>
+                            <button type="button" data-customer="@item.CustomerID" data-name="@item.CompanyName" class="btn btn-danger btn-sm btn-delete-customer">borrar</button>
+                            <a asp-controller="customers" asp-action="delete2" asp-route-id="@item.CustomerID" class="btn btn-danger btn-sm" 
+                                data-ajax="true"
+                                data-ajax-method="POST"
+                                data-ajax-update="#resultajax"
+                                data-ajax-mode="replace"
+                                data-ajax-success="DemoApp.Modules.Customers.Delete.Success('@item.CompanyName', '@item.CustomerID')"
+                                data-ajax-begin=""                                
+                                data-ajax-failure=""
+                                data-ajax-complete="">borrar</a>
                         </td>
                     </tr>
                 }
@@ -94,6 +107,9 @@
     <div class="col-6 text-end"> 
         <a class="btn btn-success" asp-controller="customers" asp-action="new">Nuevo Cliente</a>
     </div>
+</div>
+<div id="resultajax" style="display:none">
+
 </div>
 <br />
 <br />

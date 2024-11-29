@@ -1,11 +1,13 @@
 ﻿using System.Text;
 using Azure;
 using Demos.CSharp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace Demos.CSharp.WebApplication2.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private readonly HttpClient _http;
@@ -154,6 +156,40 @@ namespace Demos.CSharp.WebApplication2.Controllers
             }
             return View(customer);
 
+        }
+
+        [HttpPost]
+        public IActionResult Delete(string id)
+        {
+            try
+            {
+                HttpResponseMessage response = _http.DeleteAsync($"/customers/{id}").Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK) return Json(new { result = "OK", message = "" });
+                else return Json(new { result = "NOK", message = response.StatusCode.ToString() });
+
+            }
+            catch (Exception e)
+            {
+                return Json(new { result = "error", message = e.Message });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Delete2(string id)
+        {
+            try
+            {
+                HttpResponseMessage response = _http.DeleteAsync($"/customers/{id}").Result;
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK) return Content($"<span id=\"dataresult\" data-result=\"OK\">");
+                else return Content($"<span id=\"dataresult\" data-result=\"NOK\">");
+
+            }
+            catch (Exception e)
+            {
+                return Content($"<span id=\"dataresult\" data-result=\"error\" data-message=\"{e.Message}\">");
+            }
         }
 
         private IEnumerable<Order>? GetOrders(string id)
